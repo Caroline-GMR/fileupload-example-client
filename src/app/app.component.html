@@ -1,0 +1,25 @@
+<h1> Add a Student</h1>
+
+<form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate >
+  <div class="field">
+    <label>Name</label>
+    <input type="text" name="name" [(ngModel)]="name" #numberField="ngModel"/>
+  </div>
+
+  <div class="field">
+    <label>Picture</label>
+    <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+  </div>
+  
+  
+  <div class="field submit">
+    <button type="submit" >Add a Student</button>
+  </div>
+</form>
+
+<div class="card-container"*ngIf="students">
+  <div class="card" *ngFor="let student of students">
+    <h1>{{student.name}}</h1>
+    <img src="{{student.image}}" alt="">
+  </div> 
+</div>
